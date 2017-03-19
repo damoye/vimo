@@ -26,6 +26,7 @@ set noswapfile
 set shiftwidth=4
 set wildignore=*.pyc
 let NERDTreeIgnore=['\.pyc$']
+let g:jedi#force_py_version=3
 let g:solarized_termcolors=256
 let mapleader=" "
 nmap <C-H> <C-W><C-H>

@@ -1,1 +1,1 @@
-source ~/.config/nvim/python.vim
+source ~/.config/nvim/go.vim

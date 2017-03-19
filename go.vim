@@ -3,6 +3,7 @@ call vundle#begin()
 Plugin 'vundlevim/vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
@@ -10,6 +11,7 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sirver/ultisnips'
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 colorscheme solarized
 set autowrite
@@ -21,7 +23,6 @@ set list
 set nofoldenable
 set noswapfile
 set shiftwidth=4
-set statusline=%{fugitive#statusline()}%F%m%=%l/%L
 set tabstop=4
 let g:SuperTabDefaultCompletionType="context"
 let g:go_fmt_command="goimports"
@@ -38,7 +39,6 @@ nmap <C-N> :NERDTreeToggle<CR>
 nmap <Leader>a :cclose<CR>
 nmap <Leader>m :cprevious<CR>
 nmap <Leader>n :cnext<CR>
-nmap <Leader>b <Plug>(go-build)
 nmap <Leader>c <Plug>(go-coverage-toggle)
 nmap <Leader>d <Plug>(go-def-split)
 nmap <Leader>e <Plug>(go-rename)
@@ -47,3 +47,12 @@ nmap <Leader>i <Plug>(go-info)
 nmap <Leader>r <Plug>(go-run)
 nmap <Leader>s <Plug>(go-implements)
 nmap <Leader>t <Plug>(go-test)
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
