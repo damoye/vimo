@@ -7,6 +7,7 @@ Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sirver/ultisnips'
@@ -20,11 +21,13 @@ set clipboard=unnamedplus
 set foldmethod=syntax
 set foldnestmax=1
 set list
+set mouse=a
 set nofoldenable
 set noswapfile
 set shiftwidth=4
 set tabstop=4
 let g:SuperTabDefaultCompletionType="context"
+let g:go_autodetect_gopath = 0
 let g:go_fmt_command="goimports"
 let g:go_fmt_experimental=1
 let g:go_list_type="quickfix"
@@ -36,6 +39,7 @@ nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-L> <C-W><C-L>
 nmap <C-N> :NERDTreeToggle<CR>
+nmap <F8> :Tagbar<CR>
 nmap <Leader>a :cclose<CR>
 nmap <Leader>m :cprevious<CR>
 nmap <Leader>n :cnext<CR>
@@ -47,6 +51,7 @@ nmap <Leader>i <Plug>(go-info)
 nmap <Leader>r <Plug>(go-run)
 nmap <Leader>s <Plug>(go-implements)
 nmap <Leader>t <Plug>(go-test)
+nmap <Leader>b :<C-u>call <SID>build_go_files()<CR>
 function! s:build_go_files()
   let l:file = expand('%')
   if l:file =~# '^\f\+_test\.go$'
@@ -55,4 +60,3 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
-nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
