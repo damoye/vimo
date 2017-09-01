@@ -15,6 +15,7 @@ Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 colorscheme solarized
 set autowrite
+set background=dark
 set clipboard=unnamedplus
 set foldmethod=syntax
 set foldnestmax=1
@@ -25,11 +26,12 @@ set noswapfile
 set number
 set shiftwidth=4
 set tabstop=4
+set wildignore=*/vendor/*
 let g:SuperTabDefaultCompletionType="context"
 let g:go_autodetect_gopath = 0
 let g:go_fmt_command="goimports"
 let g:go_fmt_experimental=1
-let g:go_list_type="quickfix"
+"let g:go_list_type="quickfix"
 let g:go_metalinter_autosave=1
 let mapleader=" "
 nmap <C-H> <C-W><C-H>
