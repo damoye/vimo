@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 colorscheme solarized
 set autowrite
+set background=light
 set backspace=indent,eol,start
 set clipboard=unnamed
 set foldmethod=syntax
@@ -20,6 +21,8 @@ set foldnestmax=1
 set hlsearch
 set ignorecase
 set incsearch
+set list
+set listchars=tab:>\ 
 set mouse=a
 set nofoldenable
 set noswapfile
