@@ -10,9 +10,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-colorscheme solarized
+colorscheme molokai
 set autowrite
-"set background=dark
 set backspace=indent,eol,start
 set foldmethod=syntax
 set foldnestmax=1
