@@ -26,6 +26,7 @@ set noswapfile
 set number
 set shiftwidth=4
 set tabstop=4
+set termguicolors
 set wildignore=*/vendor/*
 set wildmenu
 set wildmode=longest:full,full
